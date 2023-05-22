@@ -16,5 +16,6 @@ simpsons <-
  order(simpsons$season)
 g <- aggregate(guest_star ~ season,data = simpsons, FUN = length)
 
-ggplot(data=g,mapping = aes(x = season, y = guest_star)) + geom_histogram(stat ='identity') + labs(title = "Histogram on Amount of Guest Stars per season")
-
+ggplot(data=g,mapping = aes(x = season, y = guest_star)) + geom_histogram(stat ='identity') + labs(title = "Histogram on Amount of Guest Stars per season") + geom_vline(aes(xintercept=mean(season)),
+                                                                                                                                                                       color="blue", linetype="solid", linewidth=1) 
+wa
