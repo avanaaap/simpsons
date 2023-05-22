@@ -14,12 +14,13 @@ simpsons <-
 #ggplot(simpsons, aes(x = guest_star)) +
 
 #geom_histogram(stat="count")
+##geom_line(stat = "identity", mapping=aes(group=paste(season,guest_star)))
 
-##+ geom_vline(aes(xintercept=mean(season)),color="blue", linetype="solid", linewidth=1) 
-head(simpsons$season)
+
+
 or <- order(simpsons$season)
 g <- aggregate(guest_star ~ season,data = simpsons, FUN = length)
 
-ggplot(data=g,mapping = aes(x = factor(season,level=or), y = guest_star)) + geom_bar(stat ='identity') + labs(title = "Bar plot on amount of guest stars per season") + xlab("season number") + ylab("number of guest stars")
+ggplot(data=g,mapping = aes(x = factor(season,level=or), y = guest_star)) + geom_bar(stat ='identity') + labs(title = "Bar plot on amount of guest stars per season") + xlab("season number") + ylab("number of guest stars") + geom_smooth(stat ='identity', aes(group=1))
 
-
+                                                                                                                                                                                                                                          
